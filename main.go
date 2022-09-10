@@ -1,11 +1,21 @@
 package main
 
-import (
-	"crypto/sha256"
-	"fmt"
-)
+import "github.com/gofiber/fiber/v2"
 
 func main() {
+	app := fiber.New()
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString(`	Hello, World 👋!
+
+	Hey world! This is Noah and Christian and Rohan.
+	Waasup!`)
+	})
+
+	app.Listen(":3000")
+}
+
+/*
 	name := "John"
 	fmt.Println("name is:", name)
 
@@ -36,7 +46,7 @@ func main() {
 	fmt.Printf("%x\n", sum)
 	// fmt.Printf("Hash: %x\n", sum)
 
-	/*
+
 		var a int
 		var b int
 		var c int
@@ -46,6 +56,5 @@ func main() {
 		b = 7
 		c = 99
 		f = 21
-	*/
-	// fmt.Println("The sum is:", a+b+c+f)
-}
+*/
+// fmt.Println("The sum is:", a+b+c+f)
